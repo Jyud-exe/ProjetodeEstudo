@@ -1,0 +1,39 @@
+{% extends "reprise.html" %}
+{% block content %}
+
+<div class="container mt-4 col-6">
+    <div class="row">
+        <h2><i>Detalhes</i>
+        </h2><a class="direita" href="{{url_for('lista')}}">Voltar</a>
+    <hr>
+    <div class="row shadow">
+        <div class="row">
+            <div class="col-md-4 mt-4">
+                <b>NOME:</b>
+                <input type="text" value="{{obj.nome}} {{obj.sobrenome}}" class="form-control bg-dark text-white" readonly>
+            </div>
+            <div class="col-md-3 mt-4">
+                <b>SEXO:</b>
+                <input type="text" value="{{obj.sexo}}" class="form-control bg-dark text-white" readonly>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <b>NASCIMENTO:</b>
+                <input type="text" value="{{obj.nascimento}}" class="form-control bg-dark text-white" readonly>
+            </div>
+            <div class="col-md-3">
+                <b>TELEFONE:</b>
+                <input type="text" value="{{obj.telefone}}" class="form-control bg-dark text-white" readonly>
+            </div>
+        </div>
+        <div class="col-md-5 mt-3">
+            <b>EMAIL:</b>
+            <input type="text" value="{{obj.email}}" class="form-control bg-dark text-white mb-3" readonly>
+        </div>
+        </div>
+        <br>
+    </div>
+</div>
+{% endblock %}

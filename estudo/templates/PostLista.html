@@ -1,0 +1,34 @@
+{% extends "reprise.html" %}
+{% block content %}
+    <div class="container  text-center">
+        <div class="row mt-4 col-10">
+            <div class="col"><i><h2>Lista de Posts</h2></i></div>
+            <div class="col-2"><a href="{{url_for('home')}}">Home</a></div>
+            <hr>
+        </div>
+        <div class="col-8 mt-5">
+            <table class="table border shadow">
+                <thead>
+                    <tr>
+                        <th>Post</th>
+                        <th>Usuario</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dado in posts %}
+                        <tr>
+                            <td>{{ dado.mensagem }}</td>
+                            <td>{{ dado.user.nome }}</td>
+                            <td><a href="{{url_for('PostDetail', id=dado.id)}}"><img src="{{url_for('static', filename='img/icon.png')}}" alt="" style="width: 20px;"></a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+           
+        </div>
+        
+    </div>
+
+{% endblock %}

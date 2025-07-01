@@ -1,0 +1,55 @@
+{% extends "reprise.html" %}
+{% block content %}
+<br>
+
+    <div class="container mt-md-4 col-4">         
+        <form action="" method="post">
+            <div class="row bg-dark border rounded justify-content-center shadow">
+                <div class="col-6">
+                    <h4 class="mt-5 text-white gruppo-regular">CADASTRE-SE</h4>
+                </div>
+            </div>
+           
+            {{ form.csrf_token }}
+
+            {{ form.nome.label(class="mt-5") }}
+            {{ form.nome(class="form-control mb-3") }}
+
+            {{ form.sobrenome.label() }}
+            {{ form.sobrenome(class="form-control mb-3") }}
+
+            Sexo
+            <div class="row col-5 p-3">
+                <div class="col-2 form-check">
+                    <input class="form-check-input" type="radio" name="sexo" id="F" value="Feminino">
+                    <label class="form-check-label" for="Feminino">F</label>
+                </div>
+                <div class="col">
+                    <input class="form-check-input" type="radio" name="sexo" id="M" value="Masculino">
+                    <label class="form-check-label" for="Masculino">M</label>
+                </div>
+            </div>
+
+            {{ form.nascimento.label(class="mt-3") }}
+            {{ form.nascimento(class="form-control col-3") }}
+
+            {{ form.telefone.label(class="mt-3") }}
+            {{ form.telefone(class="form-control") }}
+
+            {{ form.email.label(class="mt-3") }}
+            {{ form.email(class="form-control") }}
+
+            {{ form.senha.label(class="mt-3") }}
+            {{ form.senha(class="form-control") }}
+
+            {{ form.confirma_senha.label(class="mt-3") }}
+            {{ form.confirma_senha(class="form-control") }}
+
+            {{ form.btnsubmit(class="btn btn-dark col-12 mt-4 shadow") }}
+
+        <p class="text-center mt-3" >Já tenho conta! <a href="{{url_for('home')}}">Entrar</a></p>
+        </form>
+
+    </div>
+
+{% endblock %}

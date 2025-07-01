@@ -1,0 +1,54 @@
+{% extends "reprise.html" %}
+{% block content %}
+<br>
+   <div class="container">
+      <div class="row">
+            <div class="col text-center">
+            <class="col"><a href="{{url_for('revisao')}}"><button class="btn btn-dark" type="button">Revisão</button></a>
+            <class="col"><a href="{{url_for('lista')}}"><button class="btn btn-dark" type="button">Lista de contatos</button></a>
+            <class="col"><a href="{{url_for('PostNovo')}}"><button class="btn btn-dark" type="button">Novo Post</button></a>
+            <class="col"><a href="{{url_for('listaPost')}}"><button class="btn btn-dark" type="button">Lista de Post</button></a> 
+            </div>
+        <div class="row mt-md-5 justify-content-center">    
+            {% if current_user.is_authenticated %}
+            <div class="row">
+                <div class="col"><h1><i>Olá, {{current_user.nome}}!</i></h1></div>
+                
+            </div>
+            <hr>
+            </div>
+            <div class="col-12 text-end"><a href="{{url_for('logout')}}"><button class="btn btn-danger">Sair</button></a></div>
+            <img src="{{url_for('static', filename='img/gato.png')}}" style="width: 500px;">
+            {% else %}
+            <div class="row col-md-5">
+            <form action="" method="post">
+            <div class="row bg-dark border rounded shadow">
+                <div class="col">
+                    <h4 class="mt-md-5 text-white gruppo-regular text-center">LOGIN</h4>
+                </div>
+            </div>
+           
+            {{ form.csrf_token }}
+
+            {{ form.email.label(class="mt-5") }}
+            {{ form.email(class="form-control") }}
+
+            {{ form.senha.label(class="mt-3") }}
+            {{ form.senha(class="form-control") }}
+
+            {{ form.btnsubmit(class="btn btn-dark col-12 mt-5 shadow") }}
+
+            <p class="text-center mt-3">Novo aqui? <a href="{{url_for('cadastro')}}" >Cadastre-se</a></p>
+            </div>
+            
+            </form>
+            
+            </div>
+            
+            </div>
+            {% endif %}
+          
+        </div>
+        <br>
+    </div>
+{% endblock %}

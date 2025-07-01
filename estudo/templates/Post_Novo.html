@@ -1,0 +1,26 @@
+{% extends "reprise.html" %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-6 bg-dark border rounded justify-content-center shadow">
+            <h3 class="mt-4 text-white text-center">NOVO POST</h3>
+        </div>
+    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="row col-6">
+            {{ form.csrf_token }}
+
+            {{ form.mensagem.label(class='mt-3') }}
+            {{ form.mensagem(class='form-control') }}
+
+            {{ form.imagem.label(class='mt-3') }}
+            {{ form.imagem(class='form-control') }}
+
+            {{ form.botao(class='btn btn-dark form-control mt-3') }}
+
+            <a class='mt-3' href="{{url_for('home')}}" >Home</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

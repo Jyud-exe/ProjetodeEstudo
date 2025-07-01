@@ -1,0 +1,47 @@
+{% extends "reprise.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-4">
+            <i><h2>Lista de contatos</h2></i>
+            <hr>
+            <form class="row justify-content-end" method="get">
+                <div class="col-auto">
+                    <input class="form-control" type="text" name="pesquisa" id="">
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-dark" type="submit">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 mt-5">
+            <table class="table text-center border shadow">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sexo</th>
+                        <th>Nascimento</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dado in context['dados'] %}
+                        <tr>
+                            <td>{{ dado.nome }} {{ dado.sobrenome}}</td>
+                            <td>{{ dado.sexo }}</td>
+                            <td>{{ dado.nascimento }}</td>
+                            <td>{{ dado.telefone }}</td>
+                            <td>{{ dado.email }}</td>
+                            <td><a href="{{url_for('contatoDetail', id=dado.id)}}"><img src="{{url_for('static', filename='img/icon.png')}}" alt="" style="width: 20px;"></a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+            <a href="{{url_for('home')}}">Home</a>
+        </div>
+        
+    </div>
+
+{% endblock %}
